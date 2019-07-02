@@ -15,7 +15,7 @@ class StoriesListViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageView: UIView!
     var window: UIWindow?
-    var characterViewModel: CharacterViewModelProtocol?
+    var storiesViewModel: StoriesViewModelProtocol?
     
     private var _isFirstLoading = true
     private var _noFurtherData = false
@@ -30,18 +30,18 @@ class StoriesListViewController: UIViewController, UICollectionViewDelegate, UIC
     private var loadingData = false
     private let preloadCount = 10
     private var screenWidth: CGFloat = 0
-    private var characterCellSize: CGFloat = 0
+    private var storiesCellSize: CGFloat = 0
     private var loadingCellSize: CGFloat = 0
-    private var currentCharacter: CharacterModel?
+    private var currentStories: StoriesModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Tambien por viewDidLoad StoriesListViewController!!!")
         
-        let characterViewModel = CharacterViewModel()
+        let storiesViewModel = StoriesViewModel()
         NetworkService.shared.alamofireWrapper = AlamofireWrapper()
-        characterViewModel.networkService = NetworkService.shared
-        self.characterViewModel = characterViewModel
+        storiesViewModel.networkService = NetworkService.shared
+        self.storiesViewModel = storiesViewModel
         self.window?.rootViewController = self
         self.window?.makeKeyAndVisible()
         
@@ -59,7 +59,7 @@ class StoriesListViewController: UIViewController, UICollectionViewDelegate, UIC
         //     10.0 = 10.0 --> border between 2 cells
         // sum      = 50.0
         // divide by 2.0, since there are 2 columns
-        characterCellSize = (screenWidth - 50.0) / 2.0
+        storiesCellSize = (screenWidth - 50.0) / 2.0
         
         // 2 * 10.0 = 20.0 --> external border
         // 2 * 10.0 = 20.0 --> internal border
@@ -74,15 +74,15 @@ class StoriesListViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         _page += 1
         loadingData = true
-        let previousCount = characterViewModel?.characterList.count ?? 0
-        characterViewModel?.getCharacters(page: _page) { [weak self] (result) in
+        let previousCount = storiesViewModel?.storiesList.count ?? 0
+        storiesViewModel?.getStories(page: _page) { [weak self] (result) in
             self?._isFirstLoading = false
             self?.isPullingUp = false
             self?.loadingData = false
             switch result {
             case .Success(_, _):
                 self?.collectionView.reloadData()
-                let count = self?.characterViewModel?.characterList.count ?? 0
+                let count = self?.storiesViewModel?.storiesList.count ?? 0
                 if count == previousCount {
                     self?._noFurtherData = true
                 }
@@ -101,7 +101,7 @@ class StoriesListViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("collectionView StoriesListViewController!!!")
-        return _isFirstLoading ? 1 : (characterViewModel?.characterList.count ?? 0)
+        return _isFirstLoading ? 1 : (storiesViewModel?.storiesList.count ?? 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -109,19 +109,18 @@ class StoriesListViewController: UIViewController, UICollectionViewDelegate, UIC
         if _isFirstLoading {
             return collectionView.dequeueReusableCell(withReuseIdentifier: "loadingCell", for: indexPath)
         }
-        if (indexPath.row >= (characterViewModel?.characterList.count ?? 0) - preloadCount) && !loadingData {
+        if (indexPath.row >= (storiesViewModel?.storiesList.count ?? 0) - preloadCount) && !loadingData {
             loadNextPage()
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "storiesListCell", for: indexPath) as! StoriesListCell
-        let characterModel = characterViewModel!.characterList[indexPath.row]
-        cell.nameLabel.attributedText = NSAttributedString.fromString(string: characterModel.name, lineHeightMultiple: 0.7)
+        let characterModel = storiesViewModel!.storiesList[indexPath.row]
+        cell.nameLabel.attributedText = NSAttributedString.fromString(string: characterModel.title + "...", lineHeightMultiple: 0.7)
         cell.squareView.setBlackBorder()
         cell.nameView.setBlackBorder()
         // this will create a diagonal grid with pink/blue background colors for character names
         let remanderBy4 = indexPath.row % 4
         cell.nameView.backgroundColor = remanderBy4 == 1 || remanderBy4 == 2 ? .comicPink : .comicBlue
-        let url = URL(string: characterModel.thumbnail.fullName)
-        cell.characterImageView.kf.setImage(with: url)
+        
         return cell
     }
     
@@ -152,8 +151,8 @@ class StoriesListViewController: UIViewController, UICollectionViewDelegate, UIC
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("collectionView didSelectItemAt StoriesListViewController!!!")
         if !_isFirstLoading {
-            if let character = characterViewModel?.characterList[indexPath.row] {
-                characterViewModel?.currentCharacter = character
+            if let story = storiesViewModel?.storiesList[indexPath.row] {
+                storiesViewModel?.currentStory = story
                 self.performSegue(withIdentifier: "segueToCharacter", sender: self)
             }
         }
@@ -161,9 +160,9 @@ class StoriesListViewController: UIViewController, UICollectionViewDelegate, UIC
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("prepare StoriesListViewController!!!")
-        if segue.identifier == "segueToCharacter" {
-            if let characterViewController = segue.destination as? CharacterViewController {
-                characterViewController.characterViewModel = characterViewModel
+        if segue.identifier == "segueToStory" {
+            if let storiesViewController = segue.destination as? CharacterViewController {
+                //storiesViewController.characterViewModel = storiesViewModel
             }
         }
     }
@@ -174,7 +173,7 @@ class StoriesListViewController: UIViewController, UICollectionViewDelegate, UIC
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         print("collectionView sizeForItemAt StoriesListViewController!!!")
-        let size = _isFirstLoading ? loadingCellSize : characterCellSize
+        let size = _isFirstLoading ? loadingCellSize : storiesCellSize
         return CGSize(width: size, height: size)
     }
     

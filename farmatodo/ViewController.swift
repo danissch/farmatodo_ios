@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController,UINavigationControllerDelegate {
+class ViewController: UIViewController,UINavigationControllerDelegate,UITextFieldDelegate {
     
     
     var window: UIWindow?
@@ -32,7 +32,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate {
 //        takeString(string: "6 + -(-4)")
         //takeString(string: "(2 + (1 + 1)) * 6 +  - ( - 4)")
         //takeString(string: "6 * 3")
-        
+        //takeString(string: operationTextField.text!)
         
     }
     

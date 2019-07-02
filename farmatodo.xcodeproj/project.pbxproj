@@ -33,6 +33,9 @@
 		83748CBA22CBA6BD009CC612 /* StoriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83748CB922CBA6BD009CC612 /* StoriesListViewController.swift */; };
 		83748CBC22CBA721009CC612 /* StoriesListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83748CBB22CBA721009CC612 /* StoriesListHeader.swift */; };
 		83748CBE22CBA761009CC612 /* StoriesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83748CBD22CBA760009CC612 /* StoriesListCell.swift */; };
+		83748CC422CBDBEB009CC612 /* StoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83748CC322CBDBEB009CC612 /* StoriesViewModel.swift */; };
+		83748CC622CBDC3C009CC612 /* StoriesViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83748CC522CBDC3C009CC612 /* StoriesViewModelProtocol.swift */; };
+		83748CC822CBDF51009CC612 /* StoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83748CC722CBDF51009CC612 /* StoriesModel.swift */; };
 		83F70F1A22CA735B009DD04C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F70F1922CA735B009DD04C /* AppDelegate.swift */; };
 		83F70F1C22CA735B009DD04C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F70F1B22CA735B009DD04C /* ViewController.swift */; };
 		83F70F1F22CA735B009DD04C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83F70F1D22CA735B009DD04C /* Main.storyboard */; };
@@ -97,6 +100,9 @@
 		83748CB922CBA6BD009CC612 /* StoriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesListViewController.swift; sourceTree = "<group>"; };
 		83748CBB22CBA721009CC612 /* StoriesListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesListHeader.swift; sourceTree = "<group>"; };
 		83748CBD22CBA760009CC612 /* StoriesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesListCell.swift; sourceTree = "<group>"; };
+		83748CC322CBDBEB009CC612 /* StoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewModel.swift; sourceTree = "<group>"; };
+		83748CC522CBDC3C009CC612 /* StoriesViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewModelProtocol.swift; sourceTree = "<group>"; };
+		83748CC722CBDF51009CC612 /* StoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesModel.swift; sourceTree = "<group>"; };
 		83F70F1622CA735B009DD04C /* farmatodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = farmatodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83F70F1922CA735B009DD04C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83F70F1B22CA735B009DD04C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +160,8 @@
 			children = (
 				83748C9E22CAFAB2009CC612 /* CharacterViewModel.swift */,
 				83748CA022CAFAD1009CC612 /* CharacterViewModelProtocol.swift */,
+				83748CC322CBDBEB009CC612 /* StoriesViewModel.swift */,
+				83748CC522CBDC3C009CC612 /* StoriesViewModelProtocol.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -164,6 +172,7 @@
 				83748CA222CAFB10009CC612 /* CharacterModel.swift */,
 				83748CA422CAFB21009CC612 /* ComicModel.swift */,
 				83748CA622CAFB39009CC612 /* ThumbnailModel.swift */,
+				83748CC722CBDF51009CC612 /* StoriesModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -513,8 +522,10 @@
 				83748C9322CAF78E009CC612 /* CharacterListCell.swift in Sources */,
 				83748CB522CAFCDB009CC612 /* UIViewExtension.swift in Sources */,
 				83748C9722CAF9B4009CC612 /* CharacterCell.swift in Sources */,
+				83748CC622CBDC3C009CC612 /* StoriesViewModelProtocol.swift in Sources */,
 				83748CA922CAFB75009CC612 /* NetworkService.swift in Sources */,
 				83F70F1C22CA735B009DD04C /* ViewController.swift in Sources */,
+				83748CC422CBDBEB009CC612 /* StoriesViewModel.swift in Sources */,
 				83748C9522CAF99C009CC612 /* CharacterViewController.swift in Sources */,
 				83748CA322CAFB10009CC612 /* CharacterModel.swift in Sources */,
 				83748CA522CAFB21009CC612 /* ComicModel.swift in Sources */,
@@ -522,6 +533,7 @@
 				83748CA722CAFB39009CC612 /* ThumbnailModel.swift in Sources */,
 				83748C8F22CAF73C009CC612 /* CharacterListViewController.swift in Sources */,
 				83748CAB22CAFB9A009CC612 /* NetworkServiceProtocol.swift in Sources */,
+				83748CC822CBDF51009CC612 /* StoriesModel.swift in Sources */,
 				83748CAF22CAFBC5009CC612 /* AlamofireWrapper.swift in Sources */,
 				83748CBC22CBA721009CC612 /* StoriesListHeader.swift in Sources */,
 				83F70F2222CA735B009DD04C /* farmatodo.xcdatamodeld in Sources */,
