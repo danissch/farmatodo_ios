@@ -45,7 +45,8 @@ class CharacterViewModel: CharacterViewModelProtocol {
         }
         let baseUrl = networkService.baseUrl
         let hash = networkService.apiKeyTsHash
-        let url = "\(baseUrl)characters?\(hash)&offset=\(offset)&nameStartsWith=Spi"
+        //let url = "\(baseUrl)characters?\(hash)&offset=\(offset)&nameStartsWith=Spi"
+        let url = "\(baseUrl)characters?\(hash)&offset=\(offset)"
         // TODO: filter: &nameStartsWith=Spi
         networkService.request(
             url: url,
