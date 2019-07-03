@@ -26,8 +26,6 @@ class NetworkService: NetworkServiceProtocol {
         }
     }
     
-    //privateKey=1d588981a69ac0e029babffd9b44d7aad2063896
-    //noMD5hash=15620445751d588981a69ac0e029babffd9b44d7aad20638968ab74ba1c1207e5f0c2af5e66da8d94b
     var apiKeyTsHash: String {
         get {
             let apikey = "8ab74ba1c1207e5f0c2af5e66da8d94b"

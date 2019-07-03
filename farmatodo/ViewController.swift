@@ -67,12 +67,21 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UITextFiel
             }else if ((result.intValue % 7) == 0) {
                 print("El número \(result.intValue) es múltiplo de 7.")
                 print("/v1/public/creators")
+                let next = self.storyboard?.instantiateViewController(withIdentifier: "CreatorListViewController") as! CreatorListViewController
+                self.present(next, animated: true, completion: nil)
+                
             }else if ((result.intValue % 11) == 0) {
                 print("El número \(result.intValue) es múltiplo de 11.")
                 print("/v1/public/events")
+                let next = self.storyboard?.instantiateViewController(withIdentifier: "EventListViewController") as! EventListViewController
+                self.present(next, animated: true, completion: nil)
+                
             }else if ((result.intValue % 13) == 0) {
                 print("El número \(result.intValue) es múltiplo de 13.")
                 print("/v1/public/series")
+                let next = self.storyboard?.instantiateViewController(withIdentifier: "SerieListViewController") as! SerieListViewController
+                self.present(next, animated: true, completion: nil)
+                
             }else{
                 print("default/invalid:/v1/public/stories")
                 let next = self.storyboard?.instantiateViewController(withIdentifier: "StoriesListViewController") as! StoriesListViewController
