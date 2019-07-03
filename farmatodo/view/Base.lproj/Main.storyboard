@@ -225,16 +225,166 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="830.73463268365822"/>
         </scene>
-        <!--View Controller-->
+        <!--Comic List View Controller-->
         <scene sceneID="iWx-OI-mgb">
             <objects>
-                <viewController storyboardIdentifier="ComicsListViewController" id="pUn-7I-s3j" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ComicListViewController" id="pUn-7I-s3j" customClass="ComicListViewController" customModule="farmatodo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZJi-ZE-ffC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eyM-Va-xFk" userLabel="Page View">
+                                <rect key="frame" x="10" y="0.0" width="355" height="637"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e6h-yf-n0Y">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="637"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hwg-hI-Y0N">
+                                            <size key="itemSize" width="150" height="150"/>
+                                            <size key="headerReferenceSize" width="50" height="50"/>
+                                            <size key="footerReferenceSize" width="50" height="50"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="comicListCell" id="PVI-GU-gby" customClass="ComicListCell" customModule="farmatodo" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="50" width="167" height="150"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="167" height="150"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o7i-kR-Slb">
+                                                            <rect key="frame" x="0.0" y="0.0" width="167" height="150"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sDr-CK-zdg">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="167" height="119"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="119" id="bxv-Vq-wFf"/>
+                                                                        <constraint firstAttribute="width" constant="167" id="ubr-j9-uI3"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nhy-Wq-ESO">
+                                                                    <rect key="frame" x="0.0" y="119" width="253" height="31"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BtP-Ec-GOq">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="168" height="31"/>
+                                                                            <color key="backgroundColor" red="0.91878164900000003" green="1" blue="0.64118955649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <fontDescription key="fontDescription" name="ComicBook" family="Comic Book" pointSize="13"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="bottom" secondItem="BtP-Ec-GOq" secondAttribute="bottom" id="GHf-g8-kDl"/>
+                                                                        <constraint firstItem="BtP-Ec-GOq" firstAttribute="top" secondItem="Nhy-Wq-ESO" secondAttribute="top" id="KIl-7g-cPz"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="BtP-Ec-GOq" secondAttribute="trailing" constant="85" id="f1e-a2-CqB"/>
+                                                                        <constraint firstItem="BtP-Ec-GOq" firstAttribute="leading" secondItem="Nhy-Wq-ESO" secondAttribute="leading" id="rjC-HQ-P13"/>
+                                                                    </constraints>
+                                                                </view>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="sDr-CK-zdg" firstAttribute="leading" secondItem="o7i-kR-Slb" secondAttribute="leading" id="EZM-PE-ywv"/>
+                                                                <constraint firstItem="sDr-CK-zdg" firstAttribute="leading" secondItem="Nhy-Wq-ESO" secondAttribute="leading" id="LHv-zb-6cH"/>
+                                                                <constraint firstAttribute="trailing" secondItem="sDr-CK-zdg" secondAttribute="trailing" id="T5i-0h-Cmc"/>
+                                                                <constraint firstItem="Nhy-Wq-ESO" firstAttribute="top" secondItem="o7i-kR-Slb" secondAttribute="top" constant="119" id="UlA-t1-631"/>
+                                                                <constraint firstItem="sDr-CK-zdg" firstAttribute="top" secondItem="o7i-kR-Slb" secondAttribute="top" id="WTk-vp-wTB"/>
+                                                                <constraint firstItem="Nhy-Wq-ESO" firstAttribute="bottom" secondItem="sDr-CK-zdg" secondAttribute="bottom" constant="31" id="kWF-Xb-LbV"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Nhy-Wq-ESO" secondAttribute="trailing" constant="-86" id="slk-n4-rPw"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="o7i-kR-Slb" secondAttribute="bottom" id="Bnz-XM-ibm"/>
+                                                    <constraint firstItem="o7i-kR-Slb" firstAttribute="top" secondItem="PVI-GU-gby" secondAttribute="top" id="FOb-F4-Wc4"/>
+                                                    <constraint firstItem="o7i-kR-Slb" firstAttribute="leading" secondItem="PVI-GU-gby" secondAttribute="leadingMargin" constant="-8" id="tZj-BX-zG9"/>
+                                                </constraints>
+                                                <size key="customSize" width="167" height="150"/>
+                                                <connections>
+                                                    <outlet property="characterImageView" destination="sDr-CK-zdg" id="eff-bK-xL0"/>
+                                                    <outlet property="nameLabel" destination="BtP-Ec-GOq" id="YR9-qe-zIN"/>
+                                                    <outlet property="nameView" destination="Nhy-Wq-ESO" id="w9f-Ve-Pel"/>
+                                                    <outlet property="squareView" destination="o7i-kR-Slb" id="nBM-1P-dDN"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="loadingCell" id="qXY-zp-ksg">
+                                                <rect key="frame" x="177" y="50" width="150" height="150"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7lG-gP-Qtf">
+                                                            <rect key="frame" x="-105" y="0.0" width="360" height="435"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cinescape-603x336-214533" translatesAutoresizingMaskIntoConstraints="NO" id="vaG-KJ-XIN">
+                                                                    <rect key="frame" x="-104" y="-7" width="359" height="423"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstItem="vaG-KJ-XIN" firstAttribute="centerX" secondItem="7lG-gP-Qtf" secondAttribute="centerX" constant="-104.5" id="MrK-Vg-QQX"/>
+                                                                <constraint firstItem="vaG-KJ-XIN" firstAttribute="top" secondItem="7lG-gP-Qtf" secondAttribute="top" constant="-7" id="WXT-Oh-mr9"/>
+                                                                <constraint firstAttribute="bottom" secondItem="vaG-KJ-XIN" secondAttribute="bottom" constant="19" id="vVi-mo-tcu"/>
+                                                                <constraint firstItem="vaG-KJ-XIN" firstAttribute="leading" secondItem="7lG-gP-Qtf" secondAttribute="leading" constant="-104" id="y1h-wa-GH1"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                </view>
+                                                <color key="backgroundColor" red="0.89058560310000001" green="0.86536901860000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="comicListHeader" id="p0I-IX-VxT" customClass="ComicListHeader" customModule="farmatodo" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ygb-A5-qWC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sck-1r-KH6">
+                                                            <rect key="frame" x="10" y="0.0" width="335" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="COMICS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSy-Cr-95N">
+                                                                    <rect key="frame" x="-9" y="0.0" width="352" height="50"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <fontDescription key="fontDescription" name="ComicBook-Bold" family="Comic Book" pointSize="18"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </view>
+                                                    </subviews>
+                                                </view>
+                                            </subviews>
+                                            <connections>
+                                                <outlet property="rectangleView" destination="Sck-1r-KH6" id="bjN-hk-arV"/>
+                                            </connections>
+                                        </collectionReusableView>
+                                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="comicListFooter" id="esr-ep-UO4">
+                                            <rect key="frame" x="0.0" y="200" width="355" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionReusableView>
+                                        <connections>
+                                            <outlet property="dataSource" destination="pUn-7I-s3j" id="GUw-VZ-AbE"/>
+                                            <outlet property="delegate" destination="pUn-7I-s3j" id="r5P-4n-Wgb"/>
+                                        </connections>
+                                    </collectionView>
+                                </subviews>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="cLk-mz-wyE"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="e6h-yf-n0Y" id="AFV-qP-oYL"/>
+                        <outlet property="pageView" destination="eyM-Va-xFk" id="awM-bZ-38l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DW9-Tm-7ar" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

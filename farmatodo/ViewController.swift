@@ -56,12 +56,14 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UITextFiel
                 self.present(next, animated: true, completion: nil)
                 
                 
-            }else if ((result.intValue % 3) == 0) {
+            }else if ((result.intValue % 3) == 0 || (result.intValue % 5) == 0) {
+                
                 print("El número \(result.intValue) es múltiplo de 3.")
                 print("/v1/public/comics")
-            }else if ((result.intValue % 5) == 0) {
-                print("El número \(result.intValue) es múltiplo de 5.")
-                print("/v1/public/comics")
+                
+                let next = self.storyboard?.instantiateViewController(withIdentifier: "ComicListViewController") as! ComicListViewController
+                self.present(next, animated: true, completion: nil)
+                
             }else if ((result.intValue % 7) == 0) {
                 print("El número \(result.intValue) es múltiplo de 7.")
                 print("/v1/public/creators")
