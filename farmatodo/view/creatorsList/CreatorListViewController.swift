@@ -164,9 +164,9 @@ class CreatorListViewController: UIViewController, UICollectionViewDelegate, UIC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("prepare \(TAG)!!!")
         if segue.identifier == "segueToCreator" {
-           // if let creatorViewController = segue.destination as? CreatorViewController {
-                //storiesViewController.characterViewModel = storiesViewModel
-            //}
+            if let creatorViewController = segue.destination as? CreatorViewController {
+                creatorViewController.creatorViewModel = creatorViewModel
+            }
         }
     }
     

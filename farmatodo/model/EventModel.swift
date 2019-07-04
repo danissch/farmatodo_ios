@@ -12,11 +12,13 @@ class EventModel: Decodable {
     let id: Int
     let title: String
     let thumbnail: ThumbnailModel
+    let description: String
     
-    init(id: Int, title: String, thumbnail: ThumbnailModel) {
+    init(id: Int, title: String, thumbnail: ThumbnailModel, description: String) {
         self.id = id
         self.title = title
         self.thumbnail = thumbnail
+        self.description = description
     }
 }
 
@@ -32,6 +34,7 @@ extension EventModel: Equatable {
     static func == (lhs: EventModel, rhs: EventModel) -> Bool {
         return lhs.id == rhs.id &&
             lhs.title == rhs.title &&
-            lhs.thumbnail == rhs.thumbnail
+            lhs.thumbnail == rhs.thumbnail &&
+            lhs.description == rhs.description 
     }
 }

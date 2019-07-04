@@ -1,8 +1,8 @@
 //
-//  CharacterViewController.swift
+//  ComicViewController.swift
 //  farmatodo
 //
-//  Created by Daniel Duran Schutz on 7/1/19.
+//  Created by Daniel Duran Schutz on 7/3/19.
 //  Copyright © 2019 OsSource. All rights reserved.
 //
 
@@ -10,13 +10,12 @@ import Foundation
 import UIKit
 import Kingfisher
 
-class CharacterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ComicViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    var TAG:String = "CharacterViewController"
     @IBOutlet weak var pageView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var characterViewModel: CharacterViewModelProtocol?
+    var comicViewModel: ComicViewModelProtocol?
     
     private var _isFirstLoading = true
     private var _noFurtherData = false
@@ -33,7 +32,7 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
     private var screenWidth: CGFloat = 0
     private var coverWidth: CGFloat = 0
     private var coverHeight: CGFloat = 0
-    private var characterCellSize: CGFloat = 0
+    private var comicCellSize: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,16 +48,16 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
         _page += 1
         loadingData = true
         // TODO: create error treatment below (should never happen)
-        let id = characterViewModel?.currentCharacter.id ?? 0
-        let previousCount = characterViewModel?.comicList.count
-        characterViewModel?.getCharacterComics(page: _page, character: id){ [weak self] (result) in
+        let id = comicViewModel?.currentComic.id ?? 0
+        let previousCount = comicViewModel?.creatorsList.count
+        comicViewModel?.getComicCreators(page: _page, comicId: id){ [weak self] (result) in
             self?._isFirstLoading = false
             self?.isPullingUp = false
             self?.loadingData = false
             switch result {
             case .Success(_, _):
                 self?.collectionView.reloadData()
-                let count = self?.characterViewModel?.comicList.count ?? 0
+                let count = self?.comicViewModel?.creatorsList.count ?? 0
                 if count == previousCount {
                     self?._noFurtherData = true
                 }
@@ -78,7 +77,7 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
         // 2 * 10.0 = 20.0 --> external border
         // 2 * 10.0 = 20.0 --> internal border
         // sum      = 40.0
-        characterCellSize = screenWidth - 40.0
+        comicCellSize = screenWidth - 40.0
         
         
         // 2 * 10.0 = 20.0 --> external border
@@ -101,56 +100,57 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
         if section == 0 {
             return 3
         }
-        return _isFirstLoading ? 0 : (characterViewModel?.comicList.count ?? 0)
+        return _isFirstLoading ? 0 : (comicViewModel?.creatorsList.count ?? 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
-            guard let characterModel = characterViewModel?.currentCharacter else {
-                print("error reading Model")
+            guard let comicModel = comicViewModel?.currentComic else {
+                print("error reading comicModel")
                 // TO DO: (this should never happen) - improve error treatment
                 return comicsTitleCell(withString: "error", at: indexPath)
             }
             switch indexPath.row {
-            case 0: return characterCell(forCharacterModel: characterModel, at: indexPath)
-            case 1: return descriptionCell(forCharacterModel: characterModel, at: indexPath)
+            case 0: return comicCell(forComicModel: comicModel, at: indexPath)
+            case 1: return descriptionCell(forComicModel: comicModel, at: indexPath)
             default: return comicsTitleCell(withString: "comics", at: indexPath)
             }
         } else {
-            let count = characterViewModel?.comicList.count ?? 0
+            let count = comicViewModel?.creatorsList.count ?? 0
             if (indexPath.row >= count - preloadCount) && !loadingData {
                 loadNextPage()
             }
-            let comicModel = characterViewModel?.comicList[indexPath.row]
+            let comicModel = comicViewModel?.creatorsList[indexPath.row]
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "comicCell", for: indexPath) as! ComicCell
-            cell.titleLabel.text = comicModel?.title ?? ""
+            //cell.titleLabel.text = comicModel?.title ?? ""
             cell.squareView.setBlackBorder()
             cell.titleView.setBlackBorder()
             cell.titleView.backgroundColor = .white
-            if let uri = comicModel?.thumbnail.fullName{
-                let url = URL(string: uri)
-                cell.coverImageView.kf.setImage(with: url)
-            }
+//            if let uri = comicModel?.thumbnail.fullName{
+//                let url = URL(string: uri)
+//                cell.coverImageView.kf.setImage(with: url)
+//            }
             return cell
         }
     }
     
-    private func characterCell(forCharacterModel characterModel: CharacterModel, at indexPath: IndexPath) -> CharacterCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "characterCell", for: indexPath) as! CharacterCell
-        cell.nameLabel.attributedText = NSAttributedString.fromString(string: characterModel.name, lineHeightMultiple: 0.7)
+    private func comicCell(forComicModel comicModel: ComicFullModel, at indexPath: IndexPath) -> ComicFullCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "comicFullCell", for: indexPath) as! ComicFullCell
+        cell.nameLabel.attributedText = NSAttributedString.fromString(string: comicModel.title, lineHeightMultiple: 0.7)
         cell.squareView.setBlackBorder()
         cell.nameView.setBlackBorder()
         cell.nameView.backgroundColor = .comicYellow
-        let url = URL(string: characterModel.thumbnail.fullName)
-        cell.characterImageView.kf.setImage(with: url)
+        let url = URL(string: comicModel.thumbnail.fullName)
+        cell.comicImageView.kf.setImage(with: url)
         return cell
     }
     
-    private func descriptionCell(forCharacterModel characterModel: CharacterModel, at indexPath: IndexPath) -> DescriptionCell {
+    private func descriptionCell(forComicModel comicModel: ComicFullModel, at indexPath: IndexPath) -> DescriptionCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "descriptionCell", for: indexPath) as! DescriptionCell
         cell.squareView.setBlackBorder()
         cell.squareView.backgroundColor = .comicYellow
-        cell.descriptionLabel.attributedText = NSAttributedString.fromString(string: characterModel.description, lineHeightMultiple: 0.7)
+        //cell.descriptionLabel.attributedText = NSAttributedString.fromString(string: comicModel.description, lineHeightMultiple: 0.7)
+        
         return cell
     }
     
@@ -168,7 +168,7 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-            let size = characterCellSize
+            let size = comicCellSize
             let height: CGFloat
             switch indexPath.row {
             case 0:
@@ -205,7 +205,7 @@ class CharacterViewController: UIViewController, UICollectionViewDelegate, UICol
         if section == 0 {
             return CGSize(width: 0, height: 0)
         }
-        return CGSize(width: characterCellSize, height: 10)
+        return CGSize(width: comicCellSize, height: 10)
     }
     
     // MARK: - scrollView protocols

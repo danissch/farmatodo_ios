@@ -21,7 +21,7 @@ protocol SerieViewModelProtocol {
     
     func getSerieComics(
         page: Int,
-        eventId: Int,
+        serieId: Int,
         complete: @escaping ( ServiceResult<[ComicModel]?> ) -> Void )
     
     var comicList: [ComicModel] { get }

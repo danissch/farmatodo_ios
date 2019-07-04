@@ -87,7 +87,7 @@ class SerieViewModel: SerieViewModelProtocol {
     
     func getSerieComics(
         page: Int,
-        eventId: Int,
+        serieId: Int,
         complete: @escaping ( ServiceResult<[ComicModel]?> ) -> Void )  {
         print("getSerieComics :: \(TAG)")
         let offset = page * pageSize
@@ -96,7 +96,7 @@ class SerieViewModel: SerieViewModelProtocol {
         }
         let baseUrl = networkService.baseUrl
         let hash = networkService.apiKeyTsHash
-        let url = "\(baseUrl)series/\(eventId)/comics?\(hash)&offset=\(offset)"
+        let url = "\(baseUrl)series/\(serieId)/comics?\(hash)&offset=\(offset)"
         networkService.request(
             url: url,
             method: .get,

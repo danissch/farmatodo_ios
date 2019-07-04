@@ -164,9 +164,9 @@ class EventListViewController: UIViewController, UICollectionViewDelegate, UICol
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("prepare \(TAG)!!!")
         if segue.identifier == "segueToEvent" {
-            // if let creatorViewController = segue.destination as? CreatorViewController {
-            //storiesViewController.characterViewModel = storiesViewModel
-            //}
+            if let eventViewController = segue.destination as? EventViewController {
+            eventViewController.eventViewModel = eventViewModel
+            }
         }
     }
     

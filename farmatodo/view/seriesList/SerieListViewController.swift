@@ -164,9 +164,9 @@ class SerieListViewController: UIViewController, UICollectionViewDelegate, UICol
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("prepare \(TAG)!!!")
         if segue.identifier == "segueToSerie" {
-            // if let creatorViewController = segue.destination as? CreatorViewController {
-            //storiesViewController.characterViewModel = storiesViewModel
-            //}
+            if let serieViewController = segue.destination as? SerieViewController {
+                serieViewController.serieViewModel = serieViewModel
+            }
         }
     }
     

@@ -13,17 +13,17 @@ protocol ComicViewModelProtocol {
     
     func getComics(
         page: Int,
-        complete: @escaping ( ServiceResult<[ComicModel]?> ) -> Void )
+        complete: @escaping ( ServiceResult<[ComicFullModel]?> ) -> Void )
     
-    var characterList: [CharacterModel] { get }
+    var comicList: [ComicFullModel] { get }
     
-    var currentComic: ComicModel { get set }
+    var currentComic: ComicFullModel { get set }
     
-    func getCharacterComics(
+    func getComicCreators(
         page: Int,
-        character: Int,
-        complete: @escaping ( ServiceResult<[ComicModel]?> ) -> Void )
+        comicId: Int,
+        complete: @escaping ( ServiceResult<[CreatorMiniModel]?> ) -> Void )
     
-    var comicList: [ComicModel] { get }
+    var creatorsList: [CreatorMiniModel] { get }
     
 }

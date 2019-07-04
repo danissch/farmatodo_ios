@@ -32,11 +32,11 @@ class ComicListViewController: UIViewController, UICollectionViewDelegate, UICol
     private var screenWidth: CGFloat = 0
     private var comicCellSize: CGFloat = 0
     private var loadingCellSize: CGFloat = 0
-    private var currentComic: ComicModel?
+    private var currentComic: ComicFullModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad \(self.TAG)!!!")
+        print("Tambien por viewDidLoad CharacterListViewController!!!")
         
         let comicViewModel = ComicViewModel()
         NetworkService.shared.alamofireWrapper = AlamofireWrapper()
@@ -51,7 +51,7 @@ class ComicListViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     private func computeSizes() {
-        print("computeSizes \(self.TAG)!!!")
+        print("computeSizes \(TAG)!!!")
         screenWidth = UIScreen.main.bounds.width
         
         // 2 * 10.0 = 20.0 --> external border
@@ -68,7 +68,7 @@ class ComicListViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func loadNextPage() {
-        print("loadNextPage \(self.TAG)!!!")
+        print("loadNextPage CharacterListViewController!!!")
         if loadingData || _noFurtherData {
             return
         }
@@ -95,17 +95,17 @@ class ComicListViewController: UIViewController, UICollectionViewDelegate, UICol
     // MARK: UICollectionViewDataSource
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        print("numberOfSections \(self.TAG)!!!")
+        print("numberOfSections CharacterListViewController!!!")
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("collectionView \(self.TAG)!!!")
+        print("collectionView CharacterListViewController!!!")
         return _isFirstLoading ? 1 : (comicViewModel?.comicList.count ?? 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("collectionView cellForItemAt \(self.TAG)!!!")
+        print("collectionView cellForItemAt CharacterListViewController!!!")
         if _isFirstLoading {
             return collectionView.dequeueReusableCell(withReuseIdentifier: "loadingCell", for: indexPath)
         }
@@ -127,7 +127,7 @@ class ComicListViewController: UIViewController, UICollectionViewDelegate, UICol
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        print("collectionView viewForSupplementaryElementOfKind \(self.TAG)!!!")
+        print("collectionView viewForSupplementaryElementOfKind CharacterListViewController!!!")
         
         switch kind {
             
@@ -150,7 +150,7 @@ class ComicListViewController: UIViewController, UICollectionViewDelegate, UICol
     // MARK: UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("collectionView didSelectItemAt \(self.TAG)!!!")
+        print("collectionView didSelectItemAt CharacterListViewController!!!")
         if !_isFirstLoading {
             if let comic = comicViewModel?.comicList[indexPath.row] {
                 comicViewModel?.currentComic = comic
@@ -160,10 +160,10 @@ class ComicListViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("prepare \(self.TAG)!!!")
+        print("prepare CharacterListViewController!!!")
         if segue.identifier == "segueToComic" {
-            if let comicViewController = segue.destination as? CharacterViewController {
-                //comicViewController.comicViewModel = comicViewModel
+            if let comicViewController = segue.destination as? ComicViewController {
+                comicViewController.comicViewModel = comicViewModel
             }
         }
     }
@@ -173,7 +173,7 @@ class ComicListViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print("collectionView sizeForItemAt \(self.TAG)!!!")
+        print("collectionView sizeForItemAt CharacterListViewController!!!")
         let size = _isFirstLoading ? loadingCellSize : comicCellSize
         return CGSize(width: size, height: size)
     }
@@ -181,40 +181,40 @@ class ComicListViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         referenceSizeForHeaderInSection section: Int) -> CGSize {
-        print("collectionView referenceSizeForHeaderInSection \(self.TAG)!!!")
+        print("collectionView referenceSizeForHeaderInSection CharacterListViewController!!!")
         return CGSize(width: loadingCellSize, height: 32)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         referenceSizeForFooterInSection section: Int) -> CGSize {
-        print("collectionView referenceSizeForFooterInSection \(self.TAG)!!!")
+        print("collectionView referenceSizeForFooterInSection CharacterListViewController!!!")
         return CGSize(width: loadingCellSize, height: 10)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        print("collectionView minimumInteritemSpacingForSectionAt \(self.TAG)!!!")
+        print("collectionView minimumInteritemSpacingForSectionAt CharacterListViewController!!!")
         return 10.0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout
         collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        print("collectionView minimumLineSpacingForSectionAt \(self.TAG)!!!")
+        print("collectionView minimumLineSpacingForSectionAt CharacterListViewController!!!")
         return 10.0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        print("collectionView insetForSectionAt \(self.TAG)!!!")
+        print("collectionView insetForSectionAt CharacterListViewController!!!")
         return UIEdgeInsets(top: 10.0, left: 10.0, bottom: 0.0, right: 10.0)
     }
     
     // MARK: - scrollView protocols
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("scrollViewDidScroll \(self.TAG)!!!")
+        print("scrollViewDidScroll CharacterListViewController!!!")
         if isPullingUp {
             return
         }

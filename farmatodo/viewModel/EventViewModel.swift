@@ -15,7 +15,7 @@ class EventViewModel: EventViewModelProtocol {
     
     init() {
         print("init :: \(TAG)")
-        privCurrentEvent = EventModel(id: 0, title: "", thumbnail: ThumbnailModel(path: "", ext: ""))
+        privCurrentEvent = EventModel(id: 0, title: "", thumbnail: ThumbnailModel(path: "", ext: ""), description: "")
     }
     
     private let pageSize = 20

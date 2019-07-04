@@ -11,7 +11,7 @@ import UIKit
 import Kingfisher
 
 class StoriesListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
+    var TAG:String = "StoriesListViewController"
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageView: UIView!
     var window: UIWindow?
@@ -36,7 +36,7 @@ class StoriesListViewController: UIViewController, UICollectionViewDelegate, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Tambien por viewDidLoad StoriesListViewController!!!")
+        print("Tambien por viewDidLoad \(TAG)!!!")
         
         let storiesViewModel = StoriesViewModel()
         NetworkService.shared.alamofireWrapper = AlamofireWrapper()
@@ -153,7 +153,7 @@ class StoriesListViewController: UIViewController, UICollectionViewDelegate, UIC
         if !_isFirstLoading {
             if let story = storiesViewModel?.storiesList[indexPath.row] {
                 storiesViewModel?.currentStory = story
-                self.performSegue(withIdentifier: "segueToCharacter", sender: self)
+                self.performSegue(withIdentifier: "segueToStory", sender: self)
             }
         }
     }
@@ -161,8 +161,8 @@ class StoriesListViewController: UIViewController, UICollectionViewDelegate, UIC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("prepare StoriesListViewController!!!")
         if segue.identifier == "segueToStory" {
-            if let storiesViewController = segue.destination as? CharacterViewController {
-                //storiesViewController.characterViewModel = storiesViewModel
+            if let storyViewController = segue.destination as? StoryViewController {
+                storyViewController.storiesViewModel = storiesViewModel
             }
         }
     }

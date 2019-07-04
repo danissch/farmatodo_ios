@@ -59,6 +59,18 @@
 		83E487E622CD033C008A147F /* SerieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E487E522CD033C008A147F /* SerieViewModel.swift */; };
 		83E487E822CD0362008A147F /* SerieViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E487E722CD0362008A147F /* SerieViewModelProtocol.swift */; };
 		83E487EA22CD03D5008A147F /* SerieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E487E922CD03D5008A147F /* SerieModel.swift */; };
+		83E487EC22CD7159008A147F /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E487EB22CD7159008A147F /* StoryViewController.swift */; };
+		83E487EE22CD71A0008A147F /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E487ED22CD71A0008A147F /* StoryCell.swift */; };
+		83E487F022CD71E5008A147F /* ComicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E487EF22CD71E5008A147F /* ComicViewController.swift */; };
+		83E487F222CD7237008A147F /* ComicFullCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E487F122CD7237008A147F /* ComicFullCell.swift */; };
+		83E487F422CD726A008A147F /* CreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E487F322CD726A008A147F /* CreatorViewController.swift */; };
+		83E487F622CD72AE008A147F /* CreatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E487F522CD72AE008A147F /* CreatorCell.swift */; };
+		83E487F822CD72D6008A147F /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E487F722CD72D6008A147F /* EventViewController.swift */; };
+		83E487FA22CD72E7008A147F /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E487F922CD72E7008A147F /* EventCell.swift */; };
+		83E487FC22CD7343008A147F /* SerieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E487FB22CD7343008A147F /* SerieViewController.swift */; };
+		83E487FE22CD7399008A147F /* SerieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E487FD22CD7399008A147F /* SerieCell.swift */; };
+		83E4880022CD8781008A147F /* ComicFullModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E487FF22CD8781008A147F /* ComicFullModel.swift */; };
+		83E4880222CD99E5008A147F /* CreatorMiniModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E4880122CD99E5008A147F /* CreatorMiniModel.swift */; };
 		83F70F1A22CA735B009DD04C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F70F1922CA735B009DD04C /* AppDelegate.swift */; };
 		83F70F1C22CA735B009DD04C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F70F1B22CA735B009DD04C /* ViewController.swift */; };
 		83F70F1F22CA735B009DD04C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83F70F1D22CA735B009DD04C /* Main.storyboard */; };
@@ -149,6 +161,18 @@
 		83E487E522CD033C008A147F /* SerieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieViewModel.swift; sourceTree = "<group>"; };
 		83E487E722CD0362008A147F /* SerieViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieViewModelProtocol.swift; sourceTree = "<group>"; };
 		83E487E922CD03D5008A147F /* SerieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieModel.swift; sourceTree = "<group>"; };
+		83E487EB22CD7159008A147F /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
+		83E487ED22CD71A0008A147F /* StoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
+		83E487EF22CD71E5008A147F /* ComicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicViewController.swift; sourceTree = "<group>"; };
+		83E487F122CD7237008A147F /* ComicFullCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicFullCell.swift; sourceTree = "<group>"; };
+		83E487F322CD726A008A147F /* CreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorViewController.swift; sourceTree = "<group>"; };
+		83E487F522CD72AE008A147F /* CreatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorCell.swift; sourceTree = "<group>"; };
+		83E487F722CD72D6008A147F /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		83E487F922CD72E7008A147F /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		83E487FB22CD7343008A147F /* SerieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieViewController.swift; sourceTree = "<group>"; };
+		83E487FD22CD7399008A147F /* SerieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieCell.swift; sourceTree = "<group>"; };
+		83E487FF22CD8781008A147F /* ComicFullModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicFullModel.swift; sourceTree = "<group>"; };
+		83E4880122CD99E5008A147F /* CreatorMiniModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorMiniModel.swift; sourceTree = "<group>"; };
 		83F70F1622CA735B009DD04C /* farmatodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = farmatodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83F70F1922CA735B009DD04C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83F70F1B22CA735B009DD04C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +259,8 @@
 				83E487CA22CCFE99008A147F /* CreatorModel.swift */,
 				83E487DD22CD021F008A147F /* EventModel.swift */,
 				83E487E922CD03D5008A147F /* SerieModel.swift */,
+				83E487FF22CD8781008A147F /* ComicFullModel.swift */,
+				83E4880122CD99E5008A147F /* CreatorMiniModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -354,6 +380,8 @@
 		83E487CC22CCFF30008A147F /* story */ = {
 			isa = PBXGroup;
 			children = (
+				83E487EB22CD7159008A147F /* StoryViewController.swift */,
+				83E487ED22CD71A0008A147F /* StoryCell.swift */,
 			);
 			path = story;
 			sourceTree = "<group>";
@@ -361,6 +389,8 @@
 		83E487CD22CCFF78008A147F /* comic */ = {
 			isa = PBXGroup;
 			children = (
+				83E487EF22CD71E5008A147F /* ComicViewController.swift */,
+				83E487F122CD7237008A147F /* ComicFullCell.swift */,
 			);
 			path = comic;
 			sourceTree = "<group>";
@@ -368,6 +398,8 @@
 		83E487CE22CCFF90008A147F /* creator */ = {
 			isa = PBXGroup;
 			children = (
+				83E487F322CD726A008A147F /* CreatorViewController.swift */,
+				83E487F522CD72AE008A147F /* CreatorCell.swift */,
 			);
 			path = creator;
 			sourceTree = "<group>";
@@ -375,6 +407,8 @@
 		83E487D022CCFFB3008A147F /* event */ = {
 			isa = PBXGroup;
 			children = (
+				83E487F722CD72D6008A147F /* EventViewController.swift */,
+				83E487F922CD72E7008A147F /* EventCell.swift */,
 			);
 			path = event;
 			sourceTree = "<group>";
@@ -382,6 +416,8 @@
 		83E487D122CCFFC0008A147F /* serie */ = {
 			isa = PBXGroup;
 			children = (
+				83E487FB22CD7343008A147F /* SerieViewController.swift */,
+				83E487FD22CD7399008A147F /* SerieCell.swift */,
 			);
 			path = serie;
 			sourceTree = "<group>";
@@ -628,10 +664,13 @@
 				83E487E422CD02CC008A147F /* SerieListCell.swift in Sources */,
 				83E487D322CD0066008A147F /* EventListViewController.swift in Sources */,
 				83748CAD22CAFBAC009CC612 /* AlamofireProtocol.swift in Sources */,
+				83E487F822CD72D6008A147F /* EventViewController.swift in Sources */,
 				83748C9122CAF76C009CC612 /* CharacterListHeader.swift in Sources */,
+				83E487F222CD7237008A147F /* ComicFullCell.swift in Sources */,
 				83E487E222CD02B4008A147F /* SerieListHeader.swift in Sources */,
 				83748C7F22CAD425009CC612 /* Alamofire.framework in Sources */,
 				83748CB122CAFCA7009CC612 /* NSAttributedStringExtension.swift in Sources */,
+				83E487EE22CD71A0008A147F /* StoryCell.swift in Sources */,
 				83748CB322CAFCBF009CC612 /* UIColorExtension.swift in Sources */,
 				83748C9322CAF78E009CC612 /* CharacterListCell.swift in Sources */,
 				83E487C922CCFE6A008A147F /* CreatorViewModelProtocol.swift in Sources */,
@@ -647,11 +686,14 @@
 				83748CA322CAFB10009CC612 /* CharacterModel.swift in Sources */,
 				83748CA522CAFB21009CC612 /* ComicModel.swift in Sources */,
 				83748CA122CAFAD1009CC612 /* CharacterViewModelProtocol.swift in Sources */,
+				83E487FE22CD7399008A147F /* SerieCell.swift in Sources */,
 				83748CA722CAFB39009CC612 /* ThumbnailModel.swift in Sources */,
 				83E487E822CD0362008A147F /* SerieViewModelProtocol.swift in Sources */,
+				83E4880022CD8781008A147F /* ComicFullModel.swift in Sources */,
 				83E487E622CD033C008A147F /* SerieViewModel.swift in Sources */,
 				83748CCC22CC373B009CC612 /* ComicListViewController.swift in Sources */,
 				83E487EA22CD03D5008A147F /* SerieModel.swift in Sources */,
+				83E487F422CD726A008A147F /* CreatorViewController.swift in Sources */,
 				83748CD022CC37A0009CC612 /* ComicListCell.swift in Sources */,
 				83748C8F22CAF73C009CC612 /* CharacterListViewController.swift in Sources */,
 				83748CAB22CAFB9A009CC612 /* NetworkServiceProtocol.swift in Sources */,
@@ -668,10 +710,16 @@
 				83748C9922CAF9E1009CC612 /* ComicsTitleCell.swift in Sources */,
 				83E487C122CCFD74008A147F /* CreatorListViewController.swift in Sources */,
 				83748C9D22CAFA0C009CC612 /* ComicCell.swift in Sources */,
+				83E487F622CD72AE008A147F /* CreatorCell.swift in Sources */,
+				83E487F022CD71E5008A147F /* ComicViewController.swift in Sources */,
+				83E487FC22CD7343008A147F /* SerieViewController.swift in Sources */,
 				83E487C322CCFDAE008A147F /* CreatorListHeader.swift in Sources */,
+				83E4880222CD99E5008A147F /* CreatorMiniModel.swift in Sources */,
 				83748C9B22CAF9F8009CC612 /* DescriptionCell.swift in Sources */,
 				83748CD222CC37F8009CC612 /* ComicViewModel.swift in Sources */,
+				83E487EC22CD7159008A147F /* StoryViewController.swift in Sources */,
 				83E487E022CD0297008A147F /* SerieListViewController.swift in Sources */,
+				83E487FA22CD72E7008A147F /* EventCell.swift in Sources */,
 				83748CBA22CBA6BD009CC612 /* StoriesListViewController.swift in Sources */,
 				83748CBE22CBA761009CC612 /* StoriesListCell.swift in Sources */,
 				83E487CB22CCFE99008A147F /* CreatorModel.swift in Sources */,
