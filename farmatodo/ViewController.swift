@@ -18,10 +18,17 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UITextFiel
     @IBOutlet weak var beginButton: UIButton!
     
     let operations = ["1 - 1",
+                      "4-1",
+                      "4+1",
+                      "10 - 7 +( -1 )",
                       "6 + -(4)",
                       "6 + -(-4)",
+                      "6 + -(-5)",
                       "(2 + (1 + 1)) * 6 +  - ( - 4)",
-                      "6 * 3"]
+                      "6 * 3",
+                      "5 * 1",
+                      "3 + 4",
+                      "6 * 2 +(1)"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

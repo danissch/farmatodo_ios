@@ -61,8 +61,6 @@ class EventViewModel: EventViewModelProtocol {
             switch result {
             case .Success(let json, let statusCode):
                 do {
-                    //print(": getStories json ::\(json)")
-                    print("case .Success :: getEvents ::\(self!.TAG)")
                     if let data = json?.data(using: .utf8) {
                         
                         let decoder = JSONDecoder()
