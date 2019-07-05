@@ -22,6 +22,9 @@ class SerieListViewController: UIViewController, UICollectionViewDelegate, UICol
         dismiss(animated: true, completion: nil)
     }
     
+    @IBOutlet weak var resultadoLabel: UILabel!
+    var resultado:Int?
+    
     var window: UIWindow?
     var serieViewModel: SerieViewModelProtocol?
     
@@ -56,6 +59,10 @@ class SerieListViewController: UIViewController, UICollectionViewDelegate, UICol
         pageView.setBlackBorder()
         computeSizes()
         loadNextPage()
+        
+        resultadoLabel.attributedText = NSAttributedString.fromString(string: "Resultado:  \(String(describing: resultado!))", lineHeightMultiple: 0.9)
+        
+        resultadoLabel.textAlignment = .center
     }
     
     private func computeSizes() {

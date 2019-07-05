@@ -19,7 +19,8 @@ class ComicListViewController: UIViewController, UICollectionViewDelegate, UICol
     @IBAction func playAgain(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
+    @IBOutlet weak var resultadoLabel: UILabel!
+    var resultado:Int?
     
     var window: UIWindow?
     var comicViewModel: ComicViewModelProtocol?
@@ -55,6 +56,8 @@ class ComicListViewController: UIViewController, UICollectionViewDelegate, UICol
         pageView.setBlackBorder()
         computeSizes()
         loadNextPage()
+        resultadoLabel.attributedText = NSAttributedString.fromString(string: "Resultado:  \(String(describing: resultado!))", lineHeightMultiple: 0.9)
+        resultadoLabel.textAlignment = .center
     }
     
     private func computeSizes() {

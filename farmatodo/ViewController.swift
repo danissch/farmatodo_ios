@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController,UINavigationControllerDelegate,UITextFieldDelegate {
+class ViewController: UIViewController,UINavigationControllerDelegate,UITextFieldDelegate{
     
     @IBOutlet weak var labelTitleForm: UILabel!
     
@@ -21,7 +21,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UITextFiel
     override func viewDidLoad() {
         super.viewDidLoad()
         assignbackground()
-        
+        self.operationTextField.delegate=self
 //        print("Operaciones válidas")
 //        takeString(string: "1-1")
 //        takeString(string: "1 -1")
@@ -71,6 +71,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UITextFiel
                 print("/v1/public/characters")
                 
                 let next = self.storyboard?.instantiateViewController(withIdentifier: "CharacterListViewController") as! CharacterListViewController
+                next.resultado = result.intValue
                 self.present(next, animated: true, completion: nil)
                 
                 
@@ -80,29 +81,34 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UITextFiel
                 print("/v1/public/comics")
                 
                 let next = self.storyboard?.instantiateViewController(withIdentifier: "ComicListViewController") as! ComicListViewController
+                next.resultado = result.intValue
                 self.present(next, animated: true, completion: nil)
                 
             }else if ((result.intValue % 7) == 0) {
                 print("El número \(result.intValue) es múltiplo de 7.")
                 print("/v1/public/creators")
                 let next = self.storyboard?.instantiateViewController(withIdentifier: "CreatorListViewController") as! CreatorListViewController
+                next.resultado = result.intValue
                 self.present(next, animated: true, completion: nil)
                 
             }else if ((result.intValue % 11) == 0) {
                 print("El número \(result.intValue) es múltiplo de 11.")
                 print("/v1/public/events")
                 let next = self.storyboard?.instantiateViewController(withIdentifier: "EventListViewController") as! EventListViewController
+                next.resultado = result.intValue
                 self.present(next, animated: true, completion: nil)
                 
             }else if ((result.intValue % 13) == 0) {
                 print("El número \(result.intValue) es múltiplo de 13.")
                 print("/v1/public/series")
                 let next = self.storyboard?.instantiateViewController(withIdentifier: "SerieListViewController") as! SerieListViewController
+                next.resultado = result.intValue
                 self.present(next, animated: true, completion: nil)
                 
             }else{
                 print("default/invalid:/v1/public/stories")
                 let next = self.storyboard?.instantiateViewController(withIdentifier: "StoriesListViewController") as! StoriesListViewController
+                next.resultado = result.intValue
                 self.present(next, animated: true, completion: nil)
             }
             
@@ -115,24 +121,18 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UITextFiel
     
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        
-        //let secondViewController = self.storyboard!.instantiateViewController(withIdentifier: "CharacterListViewController") as! CharacterListViewController
-        //self.navigationController!.pushViewController(secondViewController, animated: true)
-        
-        
-        let mapViewControllerObj = self.storyboard?.instantiateViewController(withIdentifier: "CharacterListViewController") as? CharacterListViewController
-        self.navigationController?.pushViewController(mapViewControllerObj!, animated: true)
-        
-        
-        
+
+//        let mapViewControllerObj = self.storyboard?.instantiateViewController(withIdentifier: "CharacterListViewController") as? CharacterListViewController
+//        self.navigationController?.pushViewController(mapViewControllerObj!, animated: true)
         print("Pase por aqui!!!")
         
         return true
     }
     
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "characterList"{
+        if segue.identifier == "cList"{
             print("Pase por aqui 2!!!")
             
             //let dvc = segue.destination as! CharacterListViewController
@@ -141,6 +141,11 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UITextFiel
         }
         
         
+    }
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return string.rangeOfCharacter(from: CharacterSet.letters) == nil
     }
     
 

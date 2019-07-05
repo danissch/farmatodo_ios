@@ -16,6 +16,10 @@ class CharacterListViewController: UIViewController, UICollectionViewDelegate, U
     @IBOutlet weak var pageView: UIView!
     @IBOutlet weak var toolBar: UIToolbar!
     
+    
+    
+        @IBOutlet weak var resultadoLabel: UILabel!
+    var resultado:Int?
     @IBAction func playAgain(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -55,6 +59,9 @@ class CharacterListViewController: UIViewController, UICollectionViewDelegate, U
         pageView.setBlackBorder()
         computeSizes()
         loadNextPage()
+        
+        resultadoLabel.attributedText = NSAttributedString.fromString(string: "Resultado:  \(String(describing: resultado!))", lineHeightMultiple: 0.9)
+        resultadoLabel.textAlignment = .center
     }
     
     private func computeSizes() {

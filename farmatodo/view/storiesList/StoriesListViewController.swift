@@ -17,6 +17,10 @@ class StoriesListViewController: UIViewController, UICollectionViewDelegate, UIC
     
     @IBOutlet weak var toolBar: UIToolbar!
     
+    
+    @IBOutlet weak var resultadoLabel: UILabel!
+    var resultado:Int?
+    
     @IBAction func playAgain(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -57,6 +61,9 @@ class StoriesListViewController: UIViewController, UICollectionViewDelegate, UIC
         pageView.setBlackBorder()
         computeSizes()
         loadNextPage()
+        //resultadoLabel.text = "Resultado: \(resultado)"
+        resultadoLabel.attributedText = NSAttributedString.fromString(string: "Resultado:  \(String(describing: resultado!))", lineHeightMultiple: 0.9)
+        resultadoLabel.textAlignment = .center
     }
     
     private func computeSizes() {

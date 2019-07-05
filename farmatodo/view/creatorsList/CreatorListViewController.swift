@@ -21,6 +21,10 @@ class CreatorListViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBAction func playAgain(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBOutlet weak var resultadoLabel: UILabel!
+    var resultado:Int?
+    
     var window: UIWindow?
     var creatorViewModel: CreatorViewModelProtocol?
     
@@ -55,6 +59,9 @@ class CreatorListViewController: UIViewController, UICollectionViewDelegate, UIC
         pageView.setBlackBorder()
         computeSizes()
         loadNextPage()
+        
+        resultadoLabel.attributedText = NSAttributedString.fromString(string: "Resultado:  \(String(describing: resultado!))", lineHeightMultiple: 0.9)
+        resultadoLabel.textAlignment = .center
     }
     
     private func computeSizes() {
