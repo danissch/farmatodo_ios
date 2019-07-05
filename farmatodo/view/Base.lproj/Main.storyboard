@@ -80,7 +80,7 @@ default (Stories)</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9Q-sE-AJJ">
-                                <rect key="frame" x="40" y="323" width="87" height="28"/>
+                                <rect key="frame" x="40" y="323" width="87" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ComicBook" family="Comic Book" pointSize="12"/>
                                 <state key="normal" title="Copiar ejemplo">

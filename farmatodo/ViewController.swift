@@ -17,29 +17,23 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UITextFiel
     @IBOutlet weak var operationTextField: UITextField!
     @IBOutlet weak var beginButton: UIButton!
     
+    let operations = ["1 - 1",
+                      "6 + -(4)",
+                      "6 + -(-4)",
+                      "(2 + (1 + 1)) * 6 +  - ( - 4)",
+                      "6 * 3"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         assignbackground()
         self.operationTextField.delegate=self
-//        print("Operaciones válidas")
-//        takeString(string: "1-1")
-//        takeString(string: "1 -1")
-//        takeString(string: "1- 1")
-//        takeString(string: "1 - 1")
-//        takeString(string: "1- -1")
-//        takeString(string: "1 - -1")
-//        takeString(string: "6 + -(4)")
-//        takeString(string: "6 + -(-4)")
-        //takeString(string: "(2 + (1 + 1)) * 6 +  - ( - 4)")
-        //takeString(string: "6 * 3")
-        //takeString(string: operationTextField.text!)
+    
         
     }
     
     
     @IBAction func copyExample(_ sender: Any) {
-        copiarEjemplo()
+        operationTextField.text = operations.randomElement()
     }
     
     
@@ -53,10 +47,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UITextFiel
         
     }
     
-    func copiarEjemplo(){
-        var ejemplo1:String = "(2 + (1 + 1)) * 6 +  - ( - 4)"
-        operationTextField.text = ejemplo1
-    }
+    
     
     func assignbackground(){
         let background = UIImage(named: "94c3bd90b8037c3fe8acfd589c9af65f")
