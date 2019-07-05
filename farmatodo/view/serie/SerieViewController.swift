@@ -137,7 +137,7 @@ class SerieViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     private func serieCell(forSerieModel serieModel: SerieModel, at indexPath: IndexPath) -> SerieCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "serieCell", for: indexPath) as! SerieCell
-        cell.nameLabel.attributedText = NSAttributedString.fromString(string: serieModel.title, lineHeightMultiple: 0.7)
+        cell.nameLabel.attributedText = NSAttributedString.fromString(string: String(serieModel.id), lineHeightMultiple: 0.7)
         cell.squareView.setBlackBorder()
         cell.nameView.setBlackBorder()
         cell.nameView.backgroundColor = .comicYellow
@@ -150,7 +150,8 @@ class SerieViewController: UIViewController, UICollectionViewDelegate, UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "descriptionCell", for: indexPath) as! DescriptionCell
         cell.squareView.setBlackBorder()
         cell.squareView.backgroundColor = .comicYellow
-        //cell.descriptionLabel.attributedText = NSAttributedString.fromString(string: characterModel.description, lineHeightMultiple: 0.7)
+        //cell.squareView.isHidden = true
+        cell.descriptionLabel.attributedText = NSAttributedString.fromString(string: serieModel.title, lineHeightMultiple: 0.7)
         return cell
     }
     

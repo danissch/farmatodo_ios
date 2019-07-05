@@ -126,7 +126,8 @@ class EventViewController: UIViewController, UICollectionViewDelegate, UICollect
             cell.titleLabel.text = comicModel?.title ?? ""
             cell.squareView.setBlackBorder()
             cell.titleView.setBlackBorder()
-            cell.titleView.backgroundColor = .white
+            //cell.titleView.backgroundColor = .white
+            cell.squareView.backgroundColor = .comicYellow
             if let uri = comicModel?.thumbnail.fullName{
                 let url = URL(string: uri)
                 cell.coverImageView.kf.setImage(with: url)

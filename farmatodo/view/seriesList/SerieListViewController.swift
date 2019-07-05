@@ -120,8 +120,8 @@ class SerieListViewController: UIViewController, UICollectionViewDelegate, UICol
         cell.squareView.setBlackBorder()
         cell.nameView.setBlackBorder()
         // this will create a diagonal grid with pink/blue background colors for character names
-        let remanderBy4 = indexPath.row % 4
-        cell.nameView.backgroundColor = remanderBy4 == 1 || remanderBy4 == 2 ? .comicPink : .comicBlue
+//        let remanderBy4 = indexPath.row % 4
+//        cell.nameView.backgroundColor = remanderBy4 == 1 || remanderBy4 == 2 ? .comicPink : .comicBlue
         let url = URL(string: serieModel.thumbnail.fullName)
         cell.serieImageView.kf.setImage(with: url)
         return cell

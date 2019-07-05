@@ -11,11 +11,12 @@ import Foundation
 class ComicViewModel: ComicViewModelProtocol {
     
     var networkService: NetworkServiceProtocol?
+    var TAG:String = "ComicViewModel"
     
     init() {
-        print("init :: CharacterViewModel")
+        print("init :: \(TAG)")
         //privCurrentComic = ComicFullModel(id: 0, title: "", thumbnail: ThumbnailModel(path: "", ext: ""), description: "")
-        privCurrentComic = ComicFullModel(id: 0, title: "", format: "", thumbnail: ThumbnailModel(path: "", ext: ""))
+        privCurrentComic = ComicFullModel(id: 0, title: "", variantDescription: "", description: "", thumbnail: ThumbnailModel(path: "", ext: ""))
     }
     
     private let pageSize = 20
@@ -83,7 +84,7 @@ class ComicViewModel: ComicViewModelProtocol {
         page: Int,
         comicId: Int,
         complete: @escaping ( ServiceResult<[CreatorMiniModel]?> ) -> Void )  {
-        print("getCharacterComics :: CharacterViewModel")
+        print("getComicCreators :: \(TAG)")
         let offset = page * pageSize
         guard let networkService = networkService else {
             return complete(.Error("Missing network service", 0))
@@ -102,7 +103,7 @@ class ComicViewModel: ComicViewModelProtocol {
             switch result {
             case .Success(let json, let statusCode):
                 do {
-                    print("case .Success getCharacterComics :: CharacterViewModel")
+                    print("case .Success getComicCreators :: \(self!.TAG)")
                     if let data = json?.data(using: .utf8) {
                         let decoder = JSONDecoder()
                         let creatorResponse = try decoder.decode(CreatorMiniResponse.self, from: data)
@@ -115,7 +116,7 @@ class ComicViewModel: ComicViewModelProtocol {
                     return complete(.Error("Error decoding JSON", statusCode))
                 }
             case .Error(let message, let statusCode):
-                print("case .Error getCharacterComics :: CharacterViewModel")
+                print("case .Error getComicCreators :: \(self!.TAG)")
                 return complete(.Error(message, statusCode))
             }
         }

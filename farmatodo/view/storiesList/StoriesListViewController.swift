@@ -113,8 +113,9 @@ class StoriesListViewController: UIViewController, UICollectionViewDelegate, UIC
             loadNextPage()
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "storiesListCell", for: indexPath) as! StoriesListCell
-        let characterModel = storiesViewModel!.storiesList[indexPath.row]
-        cell.nameLabel.attributedText = NSAttributedString.fromString(string: characterModel.title + "...", lineHeightMultiple: 0.7)
+        let storiesModel = storiesViewModel!.storiesList[indexPath.row]
+        
+        cell.nameLabel.attributedText = NSAttributedString.fromString(string: storiesModel.title + "...", lineHeightMultiple: 0.9)
         cell.squareView.setBlackBorder()
         cell.nameView.setBlackBorder()
         // this will create a diagonal grid with pink/blue background colors for character names

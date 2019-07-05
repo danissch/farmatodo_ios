@@ -119,9 +119,9 @@ class EventListViewController: UIViewController, UICollectionViewDelegate, UICol
         cell.nameLabel.attributedText = NSAttributedString.fromString(string: eventModel.title + "...", lineHeightMultiple: 0.7)
         cell.squareView.setBlackBorder()
         cell.nameView.setBlackBorder()
-        // this will create a diagonal grid with pink/blue background colors for character names
-        let remanderBy4 = indexPath.row % 4
-        cell.nameView.backgroundColor = remanderBy4 == 1 || remanderBy4 == 2 ? .comicPink : .comicBlue
+        
+//        let remanderBy4 = indexPath.row % 4
+//        cell.nameView.backgroundColor = remanderBy4 == 1 || remanderBy4 == 2 ? .comicPink : .comicBlue
         let url = URL(string: eventModel.thumbnail.fullName)
         cell.eventImageView.kf.setImage(with: url)
         return cell

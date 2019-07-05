@@ -11,16 +11,18 @@ import Foundation
 class ComicFullModel: Decodable {
     let id: Int
     let title: String
-    let format: String
+    let variantDescription: String
+    let description: String?
     let thumbnail: ThumbnailModel
     
     
-    init(id: Int, title: String, format:String, thumbnail: ThumbnailModel) {
+    init(id: Int, title: String, variantDescription:String, description: String, thumbnail: ThumbnailModel) {
     //init(id: Int, title: String, thumbnail: ThumbnailModel) {
         print("init :: CharacterModel")
         self.id = id
         self.title = title
-        self.format = format
+        self.variantDescription = variantDescription
+        self.description = description
         self.thumbnail = thumbnail
         
         
@@ -39,7 +41,8 @@ extension ComicFullModel: Equatable {
     static func == (lhs: ComicFullModel, rhs: ComicFullModel) -> Bool {
         return lhs.id == rhs.id &&
             lhs.title == rhs.title &&
-            lhs.format == rhs.format &&
+            lhs.variantDescription == rhs.variantDescription &&
+            lhs.description == rhs.description &&
             lhs.thumbnail == rhs.thumbnail
         
     }

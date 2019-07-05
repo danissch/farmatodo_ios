@@ -18,6 +18,7 @@ class StoriesModel: Decodable {
         self.id = id
         self.title = title
         self.description = description
+        
     }
 }
 

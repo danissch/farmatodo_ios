@@ -112,7 +112,7 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
             }
             switch indexPath.row {
             case 0: return storyCell(forStoriesModel: storiesModel, at: indexPath)
-            case 1: return descriptionCell(forCharacterModel: storiesModel, at: indexPath)
+            case 1: return descriptionCell(forStoriesModel: storiesModel, at: indexPath)
             default: return comicsTitleCell(withString: "comics", at: indexPath)
             }
         } else {
@@ -125,7 +125,8 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
             cell.titleLabel.text = comicModel?.title ?? ""
             cell.squareView.setBlackBorder()
             cell.titleView.setBlackBorder()
-            cell.titleView.backgroundColor = .white
+            cell.squareView.backgroundColor = .comicYellow
+            cell.titleView.backgroundColor = .comicYellow
             if let uri = comicModel?.thumbnail.fullName{
                 let url = URL(string: uri)
                 cell.coverImageView.kf.setImage(with: url)
@@ -136,7 +137,8 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     private func storyCell(forStoriesModel storiesModel: StoriesModel, at indexPath: IndexPath) -> StoryCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "storyCell", for: indexPath) as! StoryCell
-        cell.nameLabel.attributedText = NSAttributedString.fromString(string: storiesModel.title, lineHeightMultiple: 0.7)
+        //cell.nameLabel.attributedText = NSAttributedString.fromString(string: storiesModel.id, lineHeightMultiple: 0.7)
+        cell.nameLabel.attributedText = NSAttributedString.fromString(string: String(storiesModel.id), lineHeightMultiple: 0.7)
         cell.squareView.setBlackBorder()
         cell.nameView.setBlackBorder()
         cell.nameView.backgroundColor = .comicYellow
@@ -145,11 +147,11 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
         return cell
     }
     
-    private func descriptionCell(forCharacterModel characterModel: StoriesModel, at indexPath: IndexPath) -> DescriptionCell {
+    private func descriptionCell(forStoriesModel storiesModel: StoriesModel, at indexPath: IndexPath) -> DescriptionCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "descriptionCell", for: indexPath) as! DescriptionCell
         cell.squareView.setBlackBorder()
         cell.squareView.backgroundColor = .comicYellow
-        cell.descriptionLabel.attributedText = NSAttributedString.fromString(string: characterModel.description, lineHeightMultiple: 0.7)
+        cell.descriptionLabel.attributedText = NSAttributedString.fromString(string: storiesModel.title, lineHeightMultiple: 0.7)
         return cell
     }
     
@@ -171,7 +173,8 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
             let height: CGFloat
             switch indexPath.row {
             case 0:
-                height = size
+                //height = size
+                height = 30
             case 1:
                 height = 100
             default:
@@ -207,7 +210,7 @@ class StoryViewController: UIViewController, UICollectionViewDelegate, UICollect
         return CGSize(width: storyCellSize, height: 10)
     }
     
-    // MARK: - scrollView protocols
+    //scrollView protocols
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if isPullingUp {

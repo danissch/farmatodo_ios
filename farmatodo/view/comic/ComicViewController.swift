@@ -113,7 +113,7 @@ class ComicViewController: UIViewController, UICollectionViewDelegate, UICollect
             switch indexPath.row {
             case 0: return comicCell(forComicModel: comicModel, at: indexPath)
             case 1: return descriptionCell(forComicModel: comicModel, at: indexPath)
-            default: return comicsTitleCell(withString: "comics", at: indexPath)
+            default: return comicsTitleCell(withString: "creators", at: indexPath)
             }
         } else {
             let count = comicViewModel?.creatorsList.count ?? 0
@@ -122,21 +122,21 @@ class ComicViewController: UIViewController, UICollectionViewDelegate, UICollect
             }
             let comicModel = comicViewModel?.creatorsList[indexPath.row]
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "comicCell", for: indexPath) as! ComicCell
-            //cell.titleLabel.text = comicModel?.title ?? ""
+            cell.titleLabel.text = comicModel?.fullName ?? ""
             cell.squareView.setBlackBorder()
             cell.titleView.setBlackBorder()
-            cell.titleView.backgroundColor = .white
-//            if let uri = comicModel?.thumbnail.fullName{
-//                let url = URL(string: uri)
-//                cell.coverImageView.kf.setImage(with: url)
-//            }
+            cell.titleView.backgroundColor = .comicYellow
+            if let uri = comicModel?.thumbnail.fullName{
+                let url = URL(string: uri)
+                cell.coverImageView.kf.setImage(with: url)
+            }
             return cell
         }
     }
     
     private func comicCell(forComicModel comicModel: ComicFullModel, at indexPath: IndexPath) -> ComicFullCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "comicFullCell", for: indexPath) as! ComicFullCell
-        cell.nameLabel.attributedText = NSAttributedString.fromString(string: comicModel.title, lineHeightMultiple: 0.7)
+        cell.nameLabel.attributedText = NSAttributedString.fromString(string: String(comicModel.id), lineHeightMultiple: 0.7)
         cell.squareView.setBlackBorder()
         cell.nameView.setBlackBorder()
         cell.nameView.backgroundColor = .comicYellow
@@ -149,7 +149,7 @@ class ComicViewController: UIViewController, UICollectionViewDelegate, UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "descriptionCell", for: indexPath) as! DescriptionCell
         cell.squareView.setBlackBorder()
         cell.squareView.backgroundColor = .comicYellow
-        //cell.descriptionLabel.attributedText = NSAttributedString.fromString(string: comicModel.description, lineHeightMultiple: 0.7)
+        cell.descriptionLabel.attributedText = NSAttributedString.fromString(string: comicModel.title, lineHeightMultiple: 0.7)
         
         return cell
     }

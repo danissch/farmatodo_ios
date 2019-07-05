@@ -10,19 +10,22 @@ import Foundation
 
 class CreatorMiniModel: Decodable {
     let id: Int
-    let title: String
+    let fullName: String
+    let thumbnail: ThumbnailModel
     
     
-    init(id: Int, title: String) {
+    init(id: Int, fullName: String, thumbnail: ThumbnailModel) {
         self.id = id
-        self.title = title
+        self.fullName = fullName
+        self.thumbnail = thumbnail
     }
 }
 
 extension CreatorMiniModel: Equatable {
     static func == (lhs: CreatorMiniModel, rhs: CreatorMiniModel) -> Bool {
         return lhs.id == rhs.id &&
-            lhs.title == rhs.title
+            lhs.fullName == rhs.fullName &&
+            lhs.thumbnail == rhs.thumbnail
     }
 }
 

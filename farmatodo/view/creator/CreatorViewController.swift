@@ -132,7 +132,7 @@ class CreatorViewController: UIViewController, UICollectionViewDelegate, UIColle
             cell.titleLabel.text = comicModel?.title
             cell.squareView.setBlackBorder()
             cell.titleView.setBlackBorder()
-            cell.titleView.backgroundColor = .white
+
             if let uri = comicModel?.thumbnail.fullName{
                 let url = URL(string: uri)
                 cell.coverImageView.kf.setImage(with: url)
@@ -143,7 +143,7 @@ class CreatorViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     private func creatorCell(forCreatorModel creatorModel: CreatorModel, at indexPath: IndexPath) -> CreatorCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "creatorCell", for: indexPath) as! CreatorCell
-        cell.nameLabel.attributedText = NSAttributedString.fromString(string: creatorModel.fullName, lineHeightMultiple: 0.7)
+        cell.nameLabel.attributedText = NSAttributedString.fromString(string: String(creatorModel.id), lineHeightMultiple: 0.7)
         cell.squareView.setBlackBorder()
         cell.nameView.setBlackBorder()
         cell.nameView.backgroundColor = .comicYellow
@@ -156,7 +156,7 @@ class CreatorViewController: UIViewController, UICollectionViewDelegate, UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "descriptionCell", for: indexPath) as! DescriptionCell
         cell.squareView.setBlackBorder()
         cell.squareView.backgroundColor = .comicYellow
-        //cell.descriptionLabel.attributedText = NSAttributedString.fromString(string: creatorModel.description, lineHeightMultiple: 0.7)
+        cell.descriptionLabel.attributedText = NSAttributedString.fromString(string: creatorModel.fullName, lineHeightMultiple: 0.7)
         return cell
     }
     

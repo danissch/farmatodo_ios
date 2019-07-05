@@ -117,9 +117,6 @@ class CharacterListViewController: UIViewController, UICollectionViewDelegate, U
         cell.nameLabel.attributedText = NSAttributedString.fromString(string: characterModel.name, lineHeightMultiple: 0.7)
         cell.squareView.setBlackBorder()
         cell.nameView.setBlackBorder()
-        // this will create a diagonal grid with pink/blue background colors for character names
-        let remanderBy4 = indexPath.row % 4
-        cell.nameView.backgroundColor = remanderBy4 == 1 || remanderBy4 == 2 ? .comicPink : .comicBlue
         let url = URL(string: characterModel.thumbnail.fullName)
         cell.characterImageView.kf.setImage(with: url)
         return cell
