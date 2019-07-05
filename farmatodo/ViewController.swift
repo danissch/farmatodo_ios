@@ -28,7 +28,10 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UITextFiel
                       "6 * 3",
                       "5 * 1",
                       "3 + 4",
-                      "6 * 2 +(1)"]
+                      "6 * 2 +(1)",
+                      "(3 + (1 + 1)) * 4 +  - ( - 4)",
+                      "(3 + 10) * (4 + 16) +  - ( - 9)",
+                      "(310) * (4 + 1 + 26) +  - ( - 88)"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
