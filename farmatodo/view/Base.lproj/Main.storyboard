@@ -35,14 +35,14 @@
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ejemplo: (2 + (1 + 1)) * 6 +  - ( - 4)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BSM-xa-6dD">
                                 <rect key="frame" x="34" y="293" width="307" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="zUU-td-dTG"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="zUU-td-dTG"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="ComicBook" family="Comic Book" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAB-MK-9l3">
-                                <rect key="frame" x="128" y="357" width="118" height="30"/>
+                                <rect key="frame" x="110" y="366" width="147" height="35"/>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="ComicBook" family="Comic Book" pointSize="17"/>
                                 <state key="normal" title="Comenzar">
@@ -53,10 +53,10 @@
                                 </connections>
                             </button>
                             <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HNL-C6-AvC">
-                                <rect key="frame" x="27" y="472.5" width="314" height="166.5"/>
+                                <rect key="frame" x="27" y="464.5" width="314" height="174.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jai-xS-HQB">
-                                        <rect key="frame" x="8" y="0.0" width="298" height="167"/>
+                                        <rect key="frame" x="8" y="0.0" width="298" height="175"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <string key="text">Resultado = 0 (Characters)
 Resultado = múltiplo de 3 (Comics)
@@ -79,22 +79,33 @@ default (Stories)</string>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9Q-sE-AJJ">
+                                <rect key="frame" x="40" y="323" width="87" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ComicBook" family="Comic Book" pointSize="12"/>
+                                <state key="normal" title="Copiar ejemplo">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="copyExample:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oyP-mw-Hin"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jtk-kV-2lz" firstAttribute="centerX" secondItem="BAB-MK-9l3" secondAttribute="centerX" id="4Qi-vt-wQq"/>
+                            <constraint firstItem="jtk-kV-2lz" firstAttribute="centerX" secondItem="BAB-MK-9l3" secondAttribute="centerX" constant="4" id="4Qi-vt-wQq"/>
                             <constraint firstItem="BSM-xa-6dD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="34" id="6aw-rF-Ljx"/>
-                            <constraint firstItem="BAB-MK-9l3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="128" id="Czc-QF-I51"/>
+                            <constraint firstItem="BAB-MK-9l3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="110" id="Czc-QF-I51"/>
                             <constraint firstItem="HNL-C6-AvC" firstAttribute="trailing" secondItem="BSM-xa-6dD" secondAttribute="trailing" id="Ezp-uW-Vfk"/>
                             <constraint firstItem="jtk-kV-2lz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="34" id="Gda-ke-TS7"/>
                             <constraint firstItem="HNL-C6-AvC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="MPF-EE-YlB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HNL-C6-AvC" secondAttribute="bottom" constant="28" id="OhR-3i-UKz"/>
                             <constraint firstItem="jtk-kV-2lz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="244" id="T1b-SE-TID"/>
                             <constraint firstItem="jtk-kV-2lz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VLZ-Hl-5iM"/>
-                            <constraint firstItem="HNL-C6-AvC" firstAttribute="top" secondItem="BAB-MK-9l3" secondAttribute="bottom" constant="88.5" id="eC0-Ne-Osr"/>
+                            <constraint firstItem="HNL-C6-AvC" firstAttribute="top" secondItem="BAB-MK-9l3" secondAttribute="bottom" constant="71.5" id="eC0-Ne-Osr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BSM-xa-6dD" secondAttribute="trailing" constant="34" id="fls-0S-uXc"/>
                             <constraint firstItem="BSM-xa-6dD" firstAttribute="top" secondItem="jtk-kV-2lz" secondAttribute="bottom" id="js9-vy-KUW"/>
-                            <constraint firstItem="BAB-MK-9l3" firstAttribute="top" secondItem="BSM-xa-6dD" secondAttribute="bottom" constant="14" id="vRk-4A-z6e"/>
+                            <constraint firstItem="BAB-MK-9l3" firstAttribute="top" secondItem="BSM-xa-6dD" secondAttribute="bottom" constant="43" id="vRk-4A-z6e"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

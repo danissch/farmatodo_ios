@@ -37,7 +37,11 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UITextFiel
         
     }
     
-
+    
+    @IBAction func copyExample(_ sender: Any) {
+        copiarEjemplo()
+    }
+    
     
     @IBAction func processOperation(_ sender: Any) {
         if(operationTextField.text != ""){
@@ -47,6 +51,11 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UITextFiel
             labelTitleForm.text = "Ingresa una operación válida"
         }
         
+    }
+    
+    func copiarEjemplo(){
+        var ejemplo1:String = "(2 + (1 + 1)) * 6 +  - ( - 4)"
+        operationTextField.text = ejemplo1
     }
     
     func assignbackground(){
