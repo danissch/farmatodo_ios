@@ -22,6 +22,8 @@ class EventListViewController: UIViewController, UICollectionViewDelegate, UICol
         dismiss(animated: true, completion: nil)
     }
     
+    @IBOutlet weak var playAgainButton: UIBarButtonItem!
+    
     @IBOutlet weak var resultadoLabel: UILabel!
     var resultado:Int?
     
@@ -62,6 +64,11 @@ class EventListViewController: UIViewController, UICollectionViewDelegate, UICol
         
         resultadoLabel.attributedText = NSAttributedString.fromString(string: "Resultado:  \(String(describing: resultado!))", lineHeightMultiple: 0.9)
         resultadoLabel.textAlignment = .center
+        
+        playAgainButton.setTitleTextAttributes([
+            NSAttributedStringKey.font: UIFont(name: "Comic Book", size: 26.0)!,
+            NSAttributedStringKey.foregroundColor: UIColor.red],
+                                               for: .normal)
     }
     
     private func computeSizes() {

@@ -72,7 +72,7 @@ default (Stories)</string>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MARVEL Operations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cc-GK-Ru3">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MARVEL Operaciones" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cc-GK-Ru3">
                                 <rect key="frame" x="20" y="38" width="335" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ComicBook-Bold" family="Comic Book" pointSize="30"/>
@@ -294,6 +294,7 @@ default (Stories)</string>
                     <connections>
                         <outlet property="collectionView" destination="s4e-5i-lQp" id="7ee-3s-y0I"/>
                         <outlet property="pageView" destination="lNi-Vn-2oK" id="yD7-cF-cGw"/>
+                        <outlet property="playAgainButton" destination="RDs-9E-9wn" id="lKt-2r-Y7D"/>
                         <outlet property="resultadoLabel" destination="8tc-BT-bzS" id="zUW-U5-te3"/>
                         <outlet property="toolBar" destination="A8i-cI-7eZ" id="eGb-AY-wrt"/>
                         <segue destination="KNG-xT-FDe" kind="show" identifier="segueToCharacter" id="oSY-qZ-JXh"/>
@@ -482,6 +483,7 @@ default (Stories)</string>
                     <connections>
                         <outlet property="collectionView" destination="e6h-yf-n0Y" id="AFV-qP-oYL"/>
                         <outlet property="pageView" destination="eyM-Va-xFk" id="awM-bZ-38l"/>
+                        <outlet property="playAgainButton" destination="eWk-8O-qGj" id="f89-Lr-j3L"/>
                         <outlet property="resultadoLabel" destination="Fan-fd-hIN" id="5HS-PU-uPE"/>
                         <outlet property="toolBar" destination="wXZ-n5-ary" id="UBq-Ms-ZSO"/>
                         <segue destination="dyU-Z1-Csz" kind="show" identifier="segueToComic" id="RE1-lf-s2X"/>
@@ -682,6 +684,7 @@ default (Stories)</string>
                     <connections>
                         <outlet property="collectionView" destination="9TE-Yq-ogI" id="eb9-rt-Cig"/>
                         <outlet property="pageView" destination="Ot7-Cr-Ptz" id="dyH-sb-cCR"/>
+                        <outlet property="playAgainButton" destination="h1E-tn-T9l" id="Jvg-Gc-aIv"/>
                         <outlet property="resultadoLabel" destination="aDg-gW-xGc" id="WwE-aF-Gpu"/>
                         <outlet property="toolBar" destination="V4e-Fk-T8Q" id="G85-aR-pKb"/>
                         <segue destination="TKz-dy-r5I" kind="show" identifier="segueToCreator" id="syX-rq-Eu5"/>
@@ -869,6 +872,7 @@ default (Stories)</string>
                     <connections>
                         <outlet property="collectionView" destination="dyJ-D9-yv9" id="j29-H7-4pP"/>
                         <outlet property="pageView" destination="ya0-IE-sUu" id="0UD-V0-xJ3"/>
+                        <outlet property="playAgainButton" destination="7BS-eg-8zy" id="1fk-Hp-XDA"/>
                         <outlet property="resultadoLabel" destination="fBE-Zy-kax" id="sH2-bF-pQi"/>
                         <outlet property="toolBar" destination="fgB-fB-XHy" id="0Lc-hT-L29"/>
                         <segue destination="ZVO-Hq-iul" kind="show" identifier="segueToEvent" id="Wdb-Qj-Bl1"/>
@@ -1056,6 +1060,7 @@ default (Stories)</string>
                     <connections>
                         <outlet property="collectionView" destination="qdU-uE-HxG" id="OTF-cK-Edn"/>
                         <outlet property="pageView" destination="6dR-pN-pUE" id="BaY-8A-PqV"/>
+                        <outlet property="playAgainButton" destination="Voc-wY-L4g" id="onj-4G-wmP"/>
                         <outlet property="resultadoLabel" destination="IF2-hX-1o1" id="v0m-oD-ylg"/>
                         <outlet property="toolBar" destination="HQ1-2W-2L6" id="fdz-Mb-ufU"/>
                         <segue destination="MYX-E3-AQa" kind="show" identifier="segueToSerie" id="Hl7-Xy-RCg"/>
@@ -1248,6 +1253,7 @@ default (Stories)</string>
                     <connections>
                         <outlet property="collectionView" destination="Vkk-XM-UdP" id="jXb-5r-FUb"/>
                         <outlet property="pageView" destination="wZn-IO-e3L" id="cnr-i3-xBy"/>
+                        <outlet property="playAgainButton" destination="cqh-q6-BCt" id="hOu-EE-on1"/>
                         <outlet property="resultadoLabel" destination="hR1-yP-jQ3" id="sRJ-DV-oxC"/>
                         <outlet property="toolBar" destination="e67-yC-bTm" id="xAO-sd-3LS"/>
                         <segue destination="baA-Fp-l6d" kind="show" identifier="segueToStory" id="4Xc-CD-VbD"/>

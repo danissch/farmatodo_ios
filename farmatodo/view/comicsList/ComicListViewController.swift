@@ -16,6 +16,7 @@ class ComicListViewController: UIViewController, UICollectionViewDelegate, UICol
     @IBOutlet weak var pageView: UIView!
     @IBOutlet weak var toolBar: UIToolbar!
     
+    @IBOutlet weak var playAgainButton: UIBarButtonItem!
     @IBAction func playAgain(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -58,6 +59,11 @@ class ComicListViewController: UIViewController, UICollectionViewDelegate, UICol
         loadNextPage()
         resultadoLabel.attributedText = NSAttributedString.fromString(string: "Resultado:  \(String(describing: resultado!))", lineHeightMultiple: 0.9)
         resultadoLabel.textAlignment = .center
+        
+        playAgainButton.setTitleTextAttributes([
+            NSAttributedStringKey.font: UIFont(name: "Comic Book", size: 26.0)!,
+            NSAttributedStringKey.foregroundColor: UIColor.red],
+                                               for: .normal)
     }
     
     private func computeSizes() {
