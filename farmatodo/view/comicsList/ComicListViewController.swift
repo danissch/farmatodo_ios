@@ -14,6 +14,13 @@ class ComicListViewController: UIViewController, UICollectionViewDelegate, UICol
     var TAG:String = "ComicListViewController"
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageView: UIView!
+    @IBOutlet weak var toolBar: UIToolbar!
+    
+    @IBAction func playAgain(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     var window: UIWindow?
     var comicViewModel: ComicViewModelProtocol?
     

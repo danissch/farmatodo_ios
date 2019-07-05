@@ -14,6 +14,14 @@ class StoriesListViewController: UIViewController, UICollectionViewDelegate, UIC
     var TAG:String = "StoriesListViewController"
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageView: UIView!
+    
+    @IBOutlet weak var toolBar: UIToolbar!
+    
+    @IBAction func playAgain(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     var window: UIWindow?
     var storiesViewModel: StoriesViewModelProtocol?
     
@@ -44,6 +52,7 @@ class StoriesListViewController: UIViewController, UICollectionViewDelegate, UIC
         self.storiesViewModel = storiesViewModel
         self.window?.rootViewController = self
         self.window?.makeKeyAndVisible()
+        self.toolBar.isHidden = false
         
         pageView.setBlackBorder()
         computeSizes()

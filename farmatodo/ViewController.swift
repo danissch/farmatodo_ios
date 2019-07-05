@@ -11,6 +11,7 @@ import Alamofire
 
 class ViewController: UIViewController,UINavigationControllerDelegate,UITextFieldDelegate {
     
+    @IBOutlet weak var labelTitleForm: UILabel!
     
     var window: UIWindow?
     @IBOutlet weak var operationTextField: UITextField!
@@ -19,7 +20,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UITextFiel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        assignbackground()
         
 //        print("Operaciones válidas")
 //        takeString(string: "1-1")
@@ -39,10 +40,27 @@ class ViewController: UIViewController,UINavigationControllerDelegate,UITextFiel
 
     
     @IBAction func processOperation(_ sender: Any) {
-        takeString(string: operationTextField.text!)
+        if(operationTextField.text != ""){
+            takeString(string: operationTextField.text!)
+        }else{
+            labelTitleForm.textColor = .red
+            labelTitleForm.text = "Ingresa una operación válida"
+        }
+        
     }
     
-    
+    func assignbackground(){
+        let background = UIImage(named: "94c3bd90b8037c3fe8acfd589c9af65f")
+        
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIViewContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubview(toBack: imageView)
+    }
     
     func takeString(string:String){
         let expression = NSExpression(format:string)

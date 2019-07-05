@@ -14,6 +14,12 @@ class CharacterListViewController: UIViewController, UICollectionViewDelegate, U
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageView: UIView!
+    @IBOutlet weak var toolBar: UIToolbar!
+    
+    @IBAction func playAgain(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     var window: UIWindow?
     var characterViewModel: CharacterViewModelProtocol?
     
@@ -21,6 +27,7 @@ class CharacterListViewController: UIViewController, UICollectionViewDelegate, U
     private var _noFurtherData = false
     private var _page = -1
     
+
     // used on tests (read only)
     var isFirstLoading: Bool { get { return _isFirstLoading } }
     var noFurtherData: Bool { get { return _noFurtherData } }

@@ -16,6 +16,12 @@ class SerieListViewController: UIViewController, UICollectionViewDelegate, UICol
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageView: UIView!
+    @IBOutlet weak var toolBar: UIToolbar!
+    
+    @IBAction func playAgain(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     var window: UIWindow?
     var serieViewModel: SerieViewModelProtocol?
     
